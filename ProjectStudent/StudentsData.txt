@@ -1,0 +1,3 @@
+Name: Shener | Faculty number: 23621605 | Program: SIT | Year: 1 | Group: 3 | Status: ENROLLED | Grades: SAA -> mandatory -> 2.0; Math1 -> mandatory -> 4.0; Math2 -> mandatory -> 4.0
+Name: Sechkin | Faculty number: 23621624 | Program: SIT | Year: 1 | Group: 3 | Status: ENROLLED
+Name: Kris | Faculty number: 23621655 | Program: CST | Year: 1 | Group: 3 | Status: ENROLLED
