@@ -204,9 +204,15 @@ public class StudentReporter implements Reportable {
     private void printSubjectsByProgram (String subjectName) {
         StringBuilder sb = new StringBuilder();
 
+//        List<Student> programFilteredStudents = studentRepository.getAll().stream()
+//                .filter(student -> student.getGradesBySubject().keySet().stream()
+//                        .anyMatch(subject -> subject.getName().equalsIgnoreCase(subjectName)))
+//                .sorted(Comparator.comparing((Student student) -> student.getProgram().getName())
+//                        .thenComparing((Student student) -> student.getFacultyNumber()))
+//                .collect(Collectors.toList());
+
         List<Student> programFilteredStudents = studentRepository.getAll().stream()
-                .filter(student -> student.getGradesBySubject().keySet().stream()
-                        .anyMatch(subject -> subject.getName().equalsIgnoreCase(subjectName)))
+                .filter(student -> student.getProgram().getName().equalsIgnoreCase(subjectName)) // Filter by program name
                 .sorted(Comparator.comparing((Student student) -> student.getProgram().getName())
                         .thenComparing((Student student) -> student.getFacultyNumber()))
                 .collect(Collectors.toList());
@@ -226,12 +232,11 @@ public class StudentReporter implements Reportable {
      */
     private void printSubjectsByYear (String subjectName) {
         StringBuilder sb = new StringBuilder();
-
+        Integer year = null;
         List<Student> yearFilteredStudents = studentRepository.getAll().stream()
-                .filter(student -> student.getGradesBySubject().keySet().stream()
-                        .anyMatch(subject -> subject.getName().equalsIgnoreCase(subjectName)))
-                .sorted(Comparator.comparing((Student student) -> student.getYear())
-                        .thenComparing((Student student) -> student.getFacultyNumber()))
+                .filter(student -> student.getProgram().getName().equalsIgnoreCase(subjectName)) // Filter by program name
+                .sorted(Comparator.comparing((Student student) -> student.getProgram().getName())
+                        .thenComparing((Student student) -> student.getYear()))
                 .collect(Collectors.toList());
 
         for (Student student : yearFilteredStudents) {
